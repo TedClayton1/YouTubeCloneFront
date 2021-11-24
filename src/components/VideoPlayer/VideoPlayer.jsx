@@ -2,7 +2,7 @@ import React from 'react';
 
 
 function VideoPlayer(props) {
-    let url = "https://www.youtube.com/watch?v=a7Dh5QoXv2c"
+    let url = "https://www.youtube.com/watch?v=SCXX91QnZSg"
     return (
         <div>
             <iframe
@@ -10,11 +10,10 @@ function VideoPlayer(props) {
             id="player"
             type="text/html"
             width="640" height="480"
-            src="https://www.youtube.com/embed/a7Dh5QoXv2c?"
+            src="https://www.youtube.com/embed/SCXX91QnZSg"
             alt="No Alt Text"
             frameBorder="10px" 
             ></iframe>
-
         </div>
     )
 }
