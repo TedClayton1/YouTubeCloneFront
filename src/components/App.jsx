@@ -16,7 +16,7 @@ class App extends Component{
         this.state= {
             searchResults: [],
             searchTerm: "",
-            apiKey: ``,
+            apiKey: '',
         };
     }
 
