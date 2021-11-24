@@ -4,10 +4,9 @@ import Header from './Header/Header';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
 import axios from 'axios';
 
-// register on google site to get api key
-// copy the link from the
-// make a handleChange funciton in App.jsx
-// make a handleSubmit funciton in App.jsx could take the string that the user search for and pass it into the "this.getSearchResults" function
+// setup post man with apikey
+// make a handleChange function in App.jsx
+// make a handleSubmit function in App.jsx could take the string that the user search for and pass it into the "this.getSearchResults" function
 // getSearchResults(search) search is the value we set the input to in "Header"
 // pass them into the "header" example <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
 class App extends Component{
@@ -16,7 +15,7 @@ class App extends Component{
         this.state= {
             searchResults: [],
             searchTerm: "",
-            apiKey: '',
+            apiKey: 'AIzaSyBishejgCVBIeKnKKDganTv5dYVjB3HwCY',
         };
     }
 
