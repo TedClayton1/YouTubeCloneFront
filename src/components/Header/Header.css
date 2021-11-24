@@ -1,0 +1,12 @@
+.header-nav{
+    background-color: lightblue;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+
+h1{
+    padding-bottom: 0.2em;
+    padding-left: 1em;
+    font-family: 'Times New Roman', Times, serif;
+}
