@@ -15,7 +15,8 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state= {
-            searchResults: [],
+            video: 'tMkwQFlAhMA',
+            searchResults: '',
             apiKey: 'AIzaSyBishejgCVBIeKnKKDganTv5dYVjB3HwCY',
         };
     }
@@ -25,18 +26,19 @@ class App extends Component{
     getSearchResults = async (searchTerm) => {
         let response = await axios.get(`https:www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&maxResults=5&key=${this.state.apiKey}`)
         console.log(response.data)
-        let tempVideoArray = response.data.items 
+        let tempVideoArray = response.data.items[0].id.videoId 
         this.setState({
-            searchResults: tempVideoArray
+            video: tempVideoArray
         })
     }
+
     render(){
         return(
             <div className="container-fluid">
                 <Header searchFunction ={this.getSearchResults} />
-                <VideoPlayer />
+                <VideoPlayer videoId={this.state.video} apiKey={this.state.apiKey}/>
                 <SearchedVideos />
-                <RelatedVideos />
+            
                
             </div>
         )

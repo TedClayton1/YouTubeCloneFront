@@ -21,7 +21,7 @@ function SearchedVideos (props){
         </tr>
   
         <tr className="searchvid1" valign="bottom">
-            <td>Video 1</td>
+            <td></td>
             
         </tr>
         <tr className="searchvid2" valign="bottom">

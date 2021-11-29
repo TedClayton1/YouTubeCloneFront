@@ -9,42 +9,10 @@ function RelatedVideos (props){
    
     return(
     <div>
-    <body>
+        {props.videos.map((element)=><><img src={element.snippet.thumbnails.default.url}/><p>{element.id.videoId}</p></>)}
    
     
-   
-  
-    <table className="tablerelated" >
-    
-        <tr className ="tablehead2">
-            <th>Related Videos</th>
-            
-        </tr>
-  
-        <tr>
-            <td>Video 1</td>
-            
-        </tr>
-        <tr>
-            <td className="tdvideo2">Video 2</td>
-            
-        </tr>
-        
-  
-        <tr>
-            <td>Video 3</td>
-            
-        </tr>
-        <tr>
-            <td>Video 4</td>
-            
-        </tr>
-        <tr>
-            <td>Video 5</td>
-            
-        </tr>
-    </table>
-</body>
+
 
 </div>
     )

@@ -12,8 +12,13 @@ th{
 
 
 .tablerelated{
-    text-align: center;
+    text-align: left;
+    background-color: purple;
+    
+    
+
 }
 .tdvideo2{
     color: palevioletred;
+    background-color: purple;
 }
