@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
 
-
 function Header(props) {
 
     const [searchTerm, setSearchTerm] = useState("");
