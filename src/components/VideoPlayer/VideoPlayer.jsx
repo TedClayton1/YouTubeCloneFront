@@ -9,7 +9,7 @@ function VideoPlayer(props) {
             title="videoplayer"
             id="player"
             type="text/html"
-            width="640" height="480"
+            width="1100" height="750"
             src="https://www.youtube.com/embed/SCXX91QnZSg"
             alt="No Alt Text"
             frameBorder="10px" 
@@ -19,3 +19,7 @@ function VideoPlayer(props) {
 }
 
 export default VideoPlayer;
+
+
+
+

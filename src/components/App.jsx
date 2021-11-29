@@ -3,7 +3,8 @@ import './App.css';
 import Header from './Header/Header';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
 import axios from 'axios';
-
+import SearchedVideos from './SearchedVideos/SearchedVideos';
+import RelatedVideos from './RelatedVideos/RelatedVideos';
 
 // make a handleChange function in App.jsx
 // make a handleSubmit function in App.jsx could take the string that the user search for and pass it into the "this.getSearchResults" function
@@ -34,6 +35,8 @@ class App extends Component{
             <div className="container-fluid">
                 <Header searchFunction ={this.getSearchResults} />
                 <VideoPlayer />
+                <SearchedVideos />
+                <RelatedVideos />
                
             </div>
         )

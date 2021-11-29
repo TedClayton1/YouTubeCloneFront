@@ -1,0 +1,44 @@
+.searchheader{
+    
+    font-size: xx-large;
+    color: pink;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.searchvid1{
+    color: palevioletred;
+    font-family: monospace;
+    font-size: large;
+}
+.searchvid2{
+    color: palevioletred;
+    font-family: monospace;
+    font-size: large;
+}
+
+.searchvid3{
+    color: palevioletred;
+    font-family: monospace;
+    font-size: large;
+}
+
+.searchvid4{
+    color: palevioletred;
+    font-family: monospace;
+    font-size: large;
+}
+
+.searchvid5{
+    color: palevioletred;
+    font-family: monospace;
+    font-size: large
+}
+
+.searchtable{
+    text-align: center;
+}
+
+.searchbody{
+    align-items: flex-start;
+}
+
