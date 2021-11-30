@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Header/Header';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
 import axios from 'axios';
-;
+
 
 // make a handleChange function in App.jsx
 // make a handleSubmit function in App.jsx could take the string that the user search for and pass it into the "this.getSearchResults" function
@@ -14,9 +14,11 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state= {
-            video: 'tMkwQFlAhMA',
+            title: 'U3ASj1L6_sY',
+            description: 'U3ASj1L6_sY',
+            video: 'U3ASj1L6_sY',
             searchResults: '',
-            apiKey: 'AIzaSyBishejgCVBIeKnKKDganTv5dYVjB3HwCY',
+            apiKey: 'AIzaSyBFNajNedKfp2H-J9kdEbm2ia_3-kcKQRk',
         };
     }
  
@@ -45,7 +47,7 @@ class App extends Component{
         return(
             <div className="container-fluid">
                 <Header searchFunction ={this.getSearchResults} />
-                <VideoPlayer videoId={this.state.video} apiKey={this.state.apiKey}/>
+                <VideoPlayer videoId={this.state.video} apiKey={this.state.apiKey} title={this.state.title} description={this.state.description}/>
                 
             
                
