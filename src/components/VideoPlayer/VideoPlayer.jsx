@@ -23,7 +23,7 @@ function VideoPlayer(props) {
     },[props.videoId])
     
     const getSearchedVids = async()=>{
-        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${props.videoId}&key=${props.apiKey}&part=snippet&type=video`)
+        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${props.videoId}&key=${props.apiKey}&part=snippet&type=video`)
         console.log('searched:', response.data.items)
         SetSearchedVids(response.data.items)
     }
