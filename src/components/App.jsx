@@ -1,4 +1,4 @@
-import React,  { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './Header/Header';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
@@ -10,51 +10,51 @@ import axios from 'axios';
 // getSearchResults(search) search is the value we set the input to in "Header"
 // pass them into the "header" example <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
 
-class App extends Component{
-    constructor(props){
-        super(props);
-        this.state= {
-            title: 'U3ASj1L6_sY',
-            description: 'U3ASj1L6_sY',
-            video: 'U3ASj1L6_sY',
-            searchResults: '',
-            apiKey: 'AIzaSyBFNajNedKfp2H-J9kdEbm2ia_3-kcKQRk',
-        };
-    }
- 
+const App = () => {
+    const [vidTitle, setVidTitle] = useState("testing adele")
+    
+    const [description, setDescription] = useState("testing adele descr")
+    const [video, setVideo] = useState("U3ASj1L6_sY")
+    const [searchResults, setSearchResults] = useState([])
+    const [apiKey, setapiKey] = useState("AIzaSyBI_ssNgcWQBWl5BFPBVN9CEcDu0XgZRoA")
 
 
-    getSearchResults = async (searchTerm) => {
-        let response = await axios.get(`https:www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&maxResults=5&key=${this.state.apiKey}`)
+
+
+
+
+    const getSearchResults = async (searchTerm) => {
+        let response = await axios.get(`https:www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&maxResults=10&key=${apiKey}`)
         console.log(response.data)
-        let tempVideoArray = response.data.items[0].id.videoId 
-        this.setState({
-            video: tempVideoArray
-        })
+        
+        setVidTitle(response.data.items[0].snippet.title)
+        setVideo(response.data.items[0].id.videoId)
+        setSearchResults(response.data.items)
+        setDescription(response.data.items[0].snippet.description)
     }
 
-    getRelatedVideos = async (searchTerm) => {
-        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId={VIDEO ID
-        HERE}&type=video&key={API KEY HERE}`)
-        console.log(response.data)
-        let tempVideoArray = response.data.items[0].id.videoId 
-        this.setState({
-            video: tempVideoArray
-        })
-    }
+    // getRelatedVideos = async (searchTerm) => {
+    //     let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId={VIDEO ID
+    //     HERE}&type=video&key={API KEY HERE}`)
+    //     console.log(response.data)
+    //     let tempVideoArray = response.data.items[0].id.videoId 
+    //     this.setState({
+    //         video: tempVideoArray
+    //     })
+    // }
 
-    render(){
-        return(
-            <div className="container-fluid">
-                <Header searchFunction ={this.getSearchResults} />
-                <VideoPlayer videoId={this.state.video} apiKey={this.state.apiKey} title={this.state.title} description={this.state.description}/>
-                
-            
-               
-            </div>
-        )
-    }    
+
+    return (
+        <div className="container-fluid">
+            <Header searchFunction={getSearchResults} />
+            <VideoPlayer vidTitle={vidTitle} videoId={video} apiKey={apiKey} description={description} />
+
+
+
+        </div>
+    )
+
 }
 
 export default App;
-                
+

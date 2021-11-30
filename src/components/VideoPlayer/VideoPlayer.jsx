@@ -8,6 +8,7 @@ import reactDom from 'react-dom';
 
 
 
+
 function VideoPlayer(props) {
     const[relatedVids,SetRelatedVids]=useState([])
     const[searchedVids,SetSearchedVids]=useState([])
@@ -44,8 +45,8 @@ function VideoPlayer(props) {
             alt="No Alt Text"
             frameBorder="0px" 
             ></iframe>
-            {props.title}
-            {props.description}
+            {props.vidTitle}
+            
             <RelatedVideos videos = {relatedVids}/>
             <SearchedVideos videos = {searchedVids}/>
           </div>
@@ -54,7 +55,9 @@ function VideoPlayer(props) {
 }
 
 export default VideoPlayer;
+            
 
+            
 
 
 
