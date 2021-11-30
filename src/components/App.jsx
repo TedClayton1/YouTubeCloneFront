@@ -3,8 +3,7 @@ import './App.css';
 import Header from './Header/Header';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
 import axios from 'axios';
-import SearchedVideos from './SearchedVideos/SearchedVideos';
-import RelatedVideos from './RelatedVideos/RelatedVideos';
+;
 
 // make a handleChange function in App.jsx
 // make a handleSubmit function in App.jsx could take the string that the user search for and pass it into the "this.getSearchResults" function
@@ -32,12 +31,22 @@ class App extends Component{
         })
     }
 
+    getRelatedVideos = async (searchTerm) => {
+        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId={VIDEO ID
+        HERE}&type=video&key={API KEY HERE}`)
+        console.log(response.data)
+        let tempVideoArray = response.data.items[0].id.videoId 
+        this.setState({
+            video: tempVideoArray
+        })
+    }
+
     render(){
         return(
             <div className="container-fluid">
                 <Header searchFunction ={this.getSearchResults} />
                 <VideoPlayer videoId={this.state.video} apiKey={this.state.apiKey}/>
-                <SearchedVideos />
+                
             
                
             </div>

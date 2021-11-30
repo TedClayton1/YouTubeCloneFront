@@ -2,9 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import RelatedVideos from '../RelatedVideos/RelatedVideos';
+import SearchedVideos from '../SearchedVideos/SearchedVideos';
 
 function VideoPlayer(props) {
     const[relatedVids,SetRelatedVids]=useState([])
+    const[searchedVids,SetSearchedVids]=useState([])
 
     //useEffect will determine the first thing to be ran when the page renders
     useEffect(()=>{
@@ -16,7 +18,15 @@ function VideoPlayer(props) {
         console.log('related:', response.data.items)
         SetRelatedVids(response.data.items)
     }
+    useEffect(()=>{
+        getSearchedVids()
+    },[props.videoId])
     
+    const getSearchedVids = async()=>{
+        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${props.videoId}&key=${props.apiKey}&part=snippet&type=video`)
+        console.log('searched:', response.data.items)
+        SetSearchedVids(response.data.items)
+    }
 
     return (
         <div>
@@ -30,6 +40,8 @@ function VideoPlayer(props) {
             frameBorder="0px" 
             ></iframe>
             <RelatedVideos videos = {relatedVids}/>
+            <SearchedVideos videos = {searchedVids}/>
+          
         </div>
     )
 }
